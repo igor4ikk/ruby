@@ -1,0 +1,42 @@
+     <h1 class ="mb-4 text-center">Show record</h1>
+        <div class="border border-primary-subtle">
+            <div class="m-2">
+                <h2 >Title:</h2>
+                <h5><%= @question.title %></h5>        
+            </div>    
+
+            <div class="m-2">
+                <h2>Body: </h2>
+                <h5><%= @question.body %></h5>
+            </div>
+        </div>
+
+
+        <br>
+        <%= render 'answers/form'%>
+
+       
+
+
+        <div class ="answer_list mt-5">
+            <h5 class ="mb-4 text-center">Answers</h5>
+
+            <% @answers.each do |comment|%>
+                
+                <div class="mb-3 border border-primary-subtle">    
+                    <p>
+                        <strong>Comment: </strong>
+                        <%= comment.body %>
+                    </p>
+
+                    <p>
+                        <strong>Time_create: </strong>
+                        <%= comment.created_at %>
+                    </p>
+                    <%= link_to "Delete", question_answer_path(@question, comment.id), data: {"turbo-method": :delete, turbo_confirm: 'Are you sure'}%>
+                    <%= link_to "Edit", edit_question_answer_path(@question, comment.id)%>
+                </div>
+
+            <% end %>
+        </div>
+

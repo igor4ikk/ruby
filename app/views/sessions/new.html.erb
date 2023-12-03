@@ -1,0 +1,25 @@
+
+
+<h1 class = "text-center">Login</h1>
+
+<div class = "m-5 border border-primary-subtle">
+
+    <%= form_with url: session_path do |f|%>
+
+        <div class="m-5" >
+            <%= f.label :email, class: 'form-label' %>
+            <%= f.email_field :email, required: true, class: 'form-control' %>
+        </div>
+
+        <div class="m-5">
+            <%= f.label :password, class: 'form-label' %>
+            <%= f.password_field :password, required: true, class: 'form-control' %>
+        </div>
+
+        <div class="m-5">
+            <%= f.submit "Login", class: 'btn-lg'%>
+        </div>
+
+    <% end%>
+
+</div>

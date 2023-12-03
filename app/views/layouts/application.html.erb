@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="mb-4 bg-dark">
+      <nav class="nav d-flex">
+        <ul class="nav header_name align-items-center">
+          <li><%= link_to 'Home', root_path, class: 'nav-link px-8 text-white' %></li>
+          <li><%= link_to 'Questions', questions_path, class: 'nav-link text-white'%></li>
+        </ul>
+    
+        <ul class="nav header_name align-items-center ms-auto p-2">
+         <% if user_signed_in? %> 
+
+            <li class="d-flex flex-row">
+        
+              <a href = "#" class = 'nav-link px-8 text-blue'>
+                  <%= current_user.name %>
+              </a>
+          
+              <%= link_to "Log out", session_path, data: {"turbo-method": :delete}, class: 'nav-link px-8 text-white' %>         
+                
+
+            </li>
+
+        <% else %>
+            <li>
+              <%= link_to "Registration", new_user_path, class: 'nav-link px-8 text-blue' %> 
+            </li>
+
+            <li>
+              <%= link_to "Sign in", new_session_path, class: 'nav-link px-8 text-blue' %> 
+            </li>
+            <% end %>
+        </ul>
+
+      </nav>
+    </header>
+
+    <main class="container mt-3">
+      <% flash.each do |k, v|%>
+        <%= tag.div v, class: "alert alert-#{k}", role: 'alert'%>
+      <% end %>
+
+
+      <%= yield %>  
+    </main>
+  </body>
+</html>

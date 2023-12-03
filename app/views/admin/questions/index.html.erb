@@ -1,0 +1,31 @@
+<h3>list questions</h3>
+
+<!--pagination pags-->
+<div class="mx-5">
+    <%== pagy_bootstrap_nav @pagy%>
+</div>
+
+<% @questions.each do |record| %>
+
+    <div class="mx-5">
+        <article class ="card mb-3">
+            <div class ="card-body">
+            <h4>id_<%= record.id %></h4>
+            <h4>Title :<%= record.title %></h4>
+
+                <section class = "card-text">
+                    <p>Body: <%= truncate (record.body), length: 150 %></p>
+
+                    Created_at: <time datetime ="<%= record.formatted_created_at%>">
+                    <%= record.formatted_created_at %></time><br>
+                </section>   
+            </div> 
+        </article>
+    </div>
+
+<%end%>
+
+<!--pagination pags-->
+<div class="mx-5">
+    <%== pagy_bootstrap_nav @pagy %>
+</div>
