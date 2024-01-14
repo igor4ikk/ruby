@@ -12,12 +12,38 @@
   </head>
 
   <body>
-    <header class="mb-4 bg-dark">
-      <nav class="nav d-flex">
+    <header class="mb-4 admin_header">
+    
+      <nav class="nav">
 
-      <h2>Admin22</h2>
+        <ul class="nav header_name align-items-center ms-auto p-2">
+         <% if user_signed_in? %> 
+
+            <li class="d-flex flex-row">
+        
+              <a href = "#" class = 'nav-link px-8 text-blue'>
+                  <%= current_user.name %>
+              </a>
+          
+              <%= link_to "Log out", admin_adminsession_path, data: {"turbo-method": :delete}, class: 'nav-link px-8 text-white' %>         
+                
+
+            </li>
+
+        <% else %>
+            <li>
+              <%= link_to "Sign in", new_admin_adminsession_path, class: 'nav-link px-8 text-blue' %> 
+            </li>
+            <% end %>
+        </ul>
 
       </nav>
+
+      <div class="header_text">Adminka</div>
+
+      
+      <%= link_to "main menu admin", admin_pages_path, class: 'nav-link px-8 text-white' %>
+
     </header>
 
     <main class="container mt-3">

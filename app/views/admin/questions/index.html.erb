@@ -1,5 +1,7 @@
 <h3>list questions</h3>
 
+<%= link_to "CREATE QUESTION from Admin", new_admin_question_path, class: 'btn btn-warning m-5' %> 
+
 <!--pagination pags-->
 <div class="mx-5">
     <%== pagy_bootstrap_nav @pagy%>
@@ -10,15 +12,21 @@
     <div class="mx-5">
         <article class ="card mb-3">
             <div class ="card-body">
-            <h4>id_<%= record.id %></h4>
-            <h4>Title :<%= record.title %></h4>
+
+                <p>id_<%= record.id %></p>
+                <p>Title :<%= record.title %></p>
 
                 <section class = "card-text">
-                    <p>Body: <%= truncate (record.body), length: 150 %></p>
+                    <p>Body : <%= truncate (record.body), length: 150 %></p>
 
                     Created_at: <time datetime ="<%= record.formatted_created_at%>">
                     <%= record.formatted_created_at %></time><br>
+
                 </section>   
+
+                <%= link_to "Show", admin_question_path(record.id), class: 'btn btn-primary' %>
+                <%= link_to "Edit", edit_admin_question_path(record.id), class: 'btn btn-primary' %>
+                <%= link_to "Destroy", admin_question_path(record.id), class: 'btn btn-danger', data: {"turbo-method": :delete, turbo_confirm: 'Are you sure'}%>
             </div> 
         </article>
     </div>

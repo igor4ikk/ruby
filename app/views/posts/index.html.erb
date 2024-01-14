@@ -1,0 +1,27 @@
+<h1 class = "mb-5 text-center">All products </h1>
+
+<div class = "d-flex flex-wrap justify-content-center">
+
+    <% @posts.each do |p| %>
+
+            <div class="card m-3" style="width: 20rem;">
+
+                <p class="card-img-top" style="width: 20rem; height: 12rem" alt="byke">
+
+                <% if p.preview_img.present? %>
+                    <%= image_tag p.preview_img %>
+                    <%end%>
+                </p>
+
+                <div class="card-body">
+                <p class="card-text"><b>Title:</b>  <%= p.title %></p>
+                </div>
+
+                <div class="card-body">
+                <b>Prescribe:</b>
+                <p class="card-text"> <%= p.body %> </p>
+                </div>
+            </div>    
+    <% end %>
+
+</div>

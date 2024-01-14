@@ -1,0 +1,26 @@
+<h1>Admin all posts </h1>
+
+<%= link_to "CREATE new post", new_admin_post_path, class: 'btn btn-danger m-5' %>
+
+<% @posts.each do |p| %>
+
+    <div class = "">
+        <p>Id:  <%= p.id %></p>
+        <p>Title:  <%= p.title %></p>
+        <p>Body:  <%= p.body %></p>
+        <p>Created:  <%= p.created_at %></p>
+        <p>updated:  <%= p.updated_at %></p>
+        <p><% if p.preview_img.present? %>
+            <%= image_tag p.preview_img %>
+        <%end%>
+        </p>
+
+    </div>
+
+    <%= link_to "show post", admin_post_path(p.id), class: 'btn btn-warning' %>
+    <%= link_to "Edit", edit_admin_post_path(p.id), class: 'btn btn-secondary'%>
+    <%= link_to "Destroy", admin_post_path(p.id), class: 'btn btn-danger', data: {"turbo-method": :delete, turbo_confirm: 'Are you sure'}%>
+    <hr class="border border-danger border-2 opacity-50">
+<% end %>
+
+<!-- preview_img - method which attached foto.-->

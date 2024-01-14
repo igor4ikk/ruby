@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
         def notfound
             render file: 'public/404.html', status: :not_found, layout: false
         end
+
+
         helper_method :current_user, :user_signed_in?
 end
  

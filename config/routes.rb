@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  
-  root "pages#index"
+  root "posts#index"
 
   resource :session, only: %i[new create destroy]
 
@@ -12,9 +12,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: %i[index show]
-    resources :questions, only: %i[index]
+    resources :questions, only: %i[new create edit update destroy show index]
+    resources :pages, only: %i[index]
+    resource :adminsession, only: %i[new create destroy]
+    resources :posts, only: %i[new create edit update index show destroy]
 
-    root "pages#index"
+    root "adminsessions#new"
   end
 
  # resources :questions, only: %i[index new edit create update destroy show]

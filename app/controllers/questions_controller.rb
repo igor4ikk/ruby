@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
     end
 
     def index
-       @pagy, @questions = pagy Question.all
+       @pagy, @questions = pagy Question.order(created_at: :desc)
         #@questions = Question.all   виводить список користувачів
     end
 

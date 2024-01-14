@@ -6,3 +6,5 @@ import "controllers"
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require bootstrap-select
+import "trix"
+import "@rails/actiontext"

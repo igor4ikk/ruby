@@ -1,0 +1,19 @@
+<h1 class ="mb-4 text-center"> Edit question from admin!</h1>
+
+<div class="m-5 border border-primary-subtle">
+    <%= form_with model: [:admin, @question], method: :put do |f| %>
+
+            <div class="m-5">
+                <%= f.label :title, class: 'form-label' %>
+                <%= f.text_field :title, required: true, minlength: 2, class: 'form-control' %>
+            </div>
+
+            <div class="m-5">
+                <%= f.label :body, class: 'form-label' %>
+                <%= f.text_area :body, required: true, minlength: 3, class: 'form-control' %>
+            </div>
+
+            <%= f.submit 'Update date', class: 'btn btn-warning m-4'%>
+
+    <%end%>
+</div>
