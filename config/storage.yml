@@ -9,8 +9,8 @@ local:
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 amazon:
   service: S3
-  access_key_id: "AKIATCKATLWPBAUAFR3M"
-  secret_access_key: "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"
+  access_key_id: "need add key from s3"
+  secret_access_key: "need add key from s3"
   region: "eu-north-1"
   bucket: "postruby1"
 
